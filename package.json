@@ -1,0 +1,23 @@
+{
+  "name": "aperture",
+  "version": "1.0.0",
+  "description": "Linux下的相片管理服务器",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamdySnow/Aperture.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamdySnow/Aperture/issues"
+  },
+  "homepage": "https://github.com/SamdySnow/Aperture#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "express": "^4.17.1"
+  }
+}
