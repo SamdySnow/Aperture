@@ -408,6 +408,12 @@ h6 {
     font-size: 24px;
 }
 
+#hero p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
 #hero .btn-get-started {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
@@ -435,7 +441,7 @@ h6 {
     border-radius: 4px;
     text-align: left;
     border: 1px solid #b6daf2;
-} */
+}
 
 #inputusername {
     border: 0;
@@ -454,7 +460,14 @@ h6 {
     border: 0;
     padding: 4px 8px;
     width: 50px;
-}
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    position: relative;
+    border-radius: 4px;
+    text-align: left;
+    border: 1px solid #b6daf2;
+} */
 
 #submit {
     position: absolute;
@@ -1448,48 +1461,6 @@ section {
     color: #444444;
     position: relative;
     padding-bottom: 12px;
-}
-
-#hero form {
-    margin-top: 30px;
-    background: #fff;
-    padding: 6px 10px;
-    position: relative;
-    border-radius: 4px;
-    text-align: left;
-    border: 1px solid #b6daf2;
-}
-
-#hero form input[type=username] {
-    border: 0;
-    padding: 4px 8px;
-    width: calc(100% - 100px);
-}
-
-#hero form input[type=username] {
-    border: 0;
-    padding: 4px 8px;
-    width: calc(100% - 100px);
-}
-
-#hero form input[type=submit] {
-    position: absolute;
-    top: 0;
-    right: -2px;
-    bottom: 0;
-    border: 0;
-    background: none;
-    font-size: 16px;
-    padding: 0 20px 2px 20px;
-    background: #3498db;
-    color: #fff;
-    transition: 0.3s;
-    border-radius: 0 4px 4px 0;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
-
-#hero form input[type=submit]:hover {
-    background: #57aae1;
 }
 
 #footer .credits {
