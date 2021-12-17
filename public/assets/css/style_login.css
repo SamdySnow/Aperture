@@ -414,7 +414,24 @@ h6 {
     font-size: 20px;
 }
 
-#hero .btn-get-started {
+#hero label {
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+#hero input {
+    background: rgba(127, 137, 161, 0.25);
+    color: #fff;
+}
+
+#hero .form-group {
+    margin-bottom: 10px;
+    font-family: "Open Sans", sans-serif;
+    text-align: left;
+}
+
+#hero .btn-login {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 15px;
@@ -425,10 +442,10 @@ h6 {
     transition: ease-in-out 0.3s;
     color: #fff;
     background: #3498db;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
-#hero .btn-get-started:hover {
+#hero .btn-login:hover {
     background: #4ea5e0;
 }
 
