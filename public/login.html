@@ -101,35 +101,35 @@
                 </div>
 
             </from> -->
-            <form method="get" class="form-horizontal" role="form">
+            <form method="post" action="/login" class="form-horizontal" role="form">
                 <div class="form-group">
-                    <label for="firstname" class="col-sm-2 control-label">Username</label>
+                    <label for="username" class="col-sm-2 control-label">用户名</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="firstname" placeholder="Username">
+                        <input type="text" class="form-control" id="username" placeholder="请输入用户名" name="usm">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="lastname" class="col-sm-2 control-label">Password</label>
+                    <label for="psd" class="col-sm-2 control-label">密码</label>
                     <div class="col-sm-3">
-                        <input type="password" class="form-control" id="psd" placeholder="Password">
+                        <input type="password" class="form-control" id="psd" placeholder="请输入密码" name="psd">
                     </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-3">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox">Save Cooikes
+                                <input type="checkbox" name="admin">以管理员身份登录
                             </label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-login">Login</button>
+                        <button type="submit" class="btn btn-login">登录</button>
                     </div>
                 </div>
             </form>
-            <!-- <a href="#about" class="btn-get-started scrollto">登录</a><br> -->
+            <a href="signup.html">注册</a><br>
 
         </div>
 
