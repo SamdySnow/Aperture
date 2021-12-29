@@ -1,0 +1,13 @@
+<div class="container" style="top: 5px;">
+<div class="row"> 
+<div class="col"> 
+<img class="img-thumbnail" src="%s">
+</div>
+<div class="col-9">
+<div class="row">文件路径:<span style="color: blue;">%s</span></div>
+<div class="row">文件名:  <span style="color: blue;">%s</span></div>
+<div class="row">所有者:   <span style="color: blue;">%s</span></div>
+<div class="row">上一次更新:<span style="color: blue;">%s</span></div>
+</div>
+</div>
+</div>
