@@ -14,14 +14,13 @@ Date.prototype.Format = function(fmt) {
         's+': this.getSeconds(),
         'S+': this.getMilliseconds()
     };
-    //因为date.getFullYear()出来的结果是number类型的,所以为了让结果变成字符串型，下面有两种方法：
     if (/(y+)/.test(fmt)) {
-        //第一种：利用字符串连接符“+”给date.getFullYear()+''，加一个空字符串便可以将number类型转换成字符串。
+
         fmt = fmt.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
     }
     for (var k in o) {
         if (new RegExp('(' + k + ')').test(fmt)) {
-            //第二种：使用String()类型进行强制数据类型转换String(date.getFullYear())，这种更容易理解。
+
             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (('00' + o[k]).substr(String(o[k]).length)));
         }
     }
@@ -35,15 +34,15 @@ var storage = multer.diskStorage({
     filename: function(req, file, cb) {
         const extname = path.extname(file.originalname)
         var now = new Date();
-        var year = now.getFullYear(); //得到年份
-        var month = now.getMonth(); //得到月份
-        var date = now.getDate(); //得到日期
-        var hour = now.getHours(); //得到小时
-        var minu = now.getMinutes(); //得到分钟
+        var year = now.getFullYear();
+        var month = now.getMonth();
+        var date = now.getDate();
+        var hour = now.getHours();
+        var minu = now.getMinutes();
         //month = month + 1;
         // if (month < 10) month = "0" + month;
         // if (date < 10) date = "0" + date;
-        var number = now.getSeconds() % 43; //这将产生一个基于目前时间的0到42的整数。
+        var number = now.getSeconds() % 43;
         var time = String(year) + String(month) + String(date) + String(hour) + String(minu);
         filename = time + "_" + String(number) + extname;
 
@@ -239,8 +238,6 @@ app.use('/view', (req, res) => {
     console.log('view imgs');
     const username = req.session.username;
 
-
-    //strscm = '<div class="container" style="top: 5px;"><div class="row"> <div class="col"> <img class="img-thumbnail" src="%s"></div><div class="col-9"><div class="row">文件路径:  %s</div><div class="row">文件名:   %s</div><div class="row">所有者:   %s</div><div class="row">上一次更新:%s</div></div></div></div>'
     renderstr = ''
 
     if (username == undefined) {
