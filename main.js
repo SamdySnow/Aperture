@@ -143,6 +143,11 @@ app.post('/login', (req, res) => {
         } else {
             info = '欢迎！' + username;
             req.session.username = username;
+            if (uss.admin) {
+                req.session.admin = true;
+            } else {
+                req.session.admin = false;
+            }
 
             ejs.renderFile('public/welcome.html', { result: info, username: username }, function(err, str) {
                 if (err) console.log(err);
@@ -252,29 +257,79 @@ app.use('/view', (req, res) => {
             console.log(data);
             strscm = data;
 
-            img.find({ owner: username }, (err, data) => {
-                console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    var mel = data[i];
-                    var imgpath = mel.path;
-                    var filename = mel.originalname;
-                    var owner = mel.owner;
-                    var upt = mel.updatetime;
-                    var pathname = imgpath.split('/')[imgpath.split('/').length - 1];
-                    var src = 'img/' + pathname;
+            if (req.session.admin) {
+                img.find((err, data) => {
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        var mel = data[i];
+                        var imgpath = mel.path;
+                        var filename = mel.originalname;
+                        var owner = mel.owner;
+                        var upt = mel.updatetime;
+                        var pathname = imgpath.split('/')[imgpath.split('/').length - 1];
+                        var src = 'img/' + pathname;
 
-                    var rest = util.format(strscm, src, imgpath, filename, owner, upt);
-                    renderstr += rest;
-                    console.log(rest);
-                    console.log('\n-----------\n');
-                    console.log(renderstr);
+                        var rest = util.format(strscm, src, imgpath, filename, owner, upt);
+                        renderstr += rest;
+                        console.log(rest);
+                        console.log('\n-----------\n');
+                        console.log(renderstr);
 
-                }
-                ejs.renderFile('public/view_ejs.html', { render: renderstr }, function(err, str) {
-                    if (err) console.log(err)
-                    res.send(str);
+                    }
+                    ejs.renderFile('public/view_ejs.html', { render: renderstr }, function(err, str) {
+                        if (err) console.log(err)
+                        res.send(str);
+                    })
                 })
-            })
+            } else {
+                img.find({ owner: username }, (err, data) => {
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        var mel = data[i];
+                        var imgpath = mel.path;
+                        var filename = mel.originalname;
+                        var owner = mel.owner;
+                        var upt = mel.updatetime;
+                        var pathname = imgpath.split('/')[imgpath.split('/').length - 1];
+                        var src = 'img/' + pathname;
+
+                        var rest = util.format(strscm, src, imgpath, filename, owner, upt);
+                        renderstr += rest;
+                        console.log(rest);
+                        console.log('\n-----------\n');
+                        console.log(renderstr);
+
+                    }
+                    ejs.renderFile('public/view_ejs.html', { render: renderstr }, function(err, str) {
+                        if (err) console.log(err)
+                        res.send(str);
+                    })
+                })
+            }
+
+            // img.find({ owner: username }, (err, data) => {
+            //     console.log(data);
+            //     for (var i = 0; i < data.length; i++) {
+            //         var mel = data[i];
+            //         var imgpath = mel.path;
+            //         var filename = mel.originalname;
+            //         var owner = mel.owner;
+            //         var upt = mel.updatetime;
+            //         var pathname = imgpath.split('/')[imgpath.split('/').length - 1];
+            //         var src = 'img/' + pathname;
+
+            //         var rest = util.format(strscm, src, imgpath, filename, owner, upt);
+            //         renderstr += rest;
+            //         console.log(rest);
+            //         console.log('\n-----------\n');
+            //         console.log(renderstr);
+
+            //     }
+            //     ejs.renderFile('public/view_ejs.html', { render: renderstr }, function(err, str) {
+            //         if (err) console.log(err)
+            //         res.send(str);
+            //     })
+            // })
         });
 
 
